@@ -1,0 +1,26 @@
+<h1 class="text-center">Adicione um novo membro a tripulação</h1>
+
+<div class="d-flex justify-content-around">
+    <form [formGroup]="crewForm" (ngSubmit)="onSubmit()" class="w-50">
+        <input type="text" class="form-control"
+            placeholder="Nome" formControlName="nome"> <br>
+        <input type="text" class="form-control"
+            placeholder="Especie" formControlName="especie"> <br>
+        <input type="text" class="form-control"
+            placeholder="Função" formControlName="funcao"> <br>
+        <input type="text" class="form-control"
+            placeholder="Estado" formControlName="estado"> <br>
+        <input type="text" class="form-control"
+            placeholder="Data de Nascimento" formControlName="dataNascimentoCriacao"> <br>
+        <input type="text" class="form-control"
+            placeholder="Setor / Departamento" formControlName="setorDepartamento"> <br>
+        <input type="text" class="form-control"
+            placeholder="Contato de emergência" formControlName="contactosEmergencia"> <br>
+        <input type="text" class="form-control"
+            placeholder="Observações" formControlName="notasObservacoes">
+        <div class="d-flex justify-content-around">    
+            <button type="submit" class="btn btn-primary mt-3">Guardar</button>
+            <button type="button" class="btn btn-danger mt-3" [routerLink]="['/home']">Cancelar</button>
+        </div>
+    </form>
+</div>

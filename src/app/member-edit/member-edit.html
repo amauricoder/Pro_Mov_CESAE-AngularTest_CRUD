@@ -1,0 +1,32 @@
+<h1>Edição de dados</h1>
+<div *ngIf="member" class="card" style="width: 30rem;">
+	<img src="https://api.dicebear.com/9.x/personas/svg?seed={{ member.id }}" class="card-img-top" alt="...">
+	<div class="card-body">
+		<h5 class="card-title">{{ member.nome }}</h5>
+		<p class="card-text"> {{ member.notasObservacoes }}</p>
+	</div>
+	
+	<form [formGroup]="crewForm" (ngSubmit)="onSubmit()" class="w-50">
+		<input type="text" class="form-control" placeholder="{{ member.nome }}" formControlName="nome"> <br>
+		<input type="text" class="form-control" placeholder="{{ member.especie }}" formControlName="especie"> <br>
+		<input type="text" class="form-control" placeholder="{{ member.funcao }}" formControlName="funcao"> <br>
+		<input type="text" class="form-control" placeholder="{{ member.estado }}" formControlName="estado"> <br>
+		<input type="text" class="form-control" placeholder="{{ member.dataNascimentoCriacao }}"
+			formControlName="dataNascimentoCriacao"> <br>
+		<input type="text" class="form-control" placeholder="{{ member.setorDepartamento }}"
+			formControlName="setorDepartamento"> <br>
+		<input type="text" class="form-control" placeholder="{{ member.contactosEmergencia }}"
+			formControlName="contactosEmergencia"> <br>
+		<input type="text" class="form-control" placeholder="{{ member.notasObservacoes }}"
+			formControlName="notasObservacoes">
+
+		<div class="row">
+			<button class="btn btn-primary mt-3">Atualizar</button>
+			<button class="btn btn-secondary mt-3" [routerLink]="['/member-detail', member.id]">Cancelar</button>
+		</div>
+	</form>
+</div>
+
+<div *ngIf="!member">
+	<p>Membro não encontrado ou carregando...</p>
+</div>

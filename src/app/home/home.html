@@ -1,0 +1,29 @@
+<!-- https://www.dicebear.com/styles/personas/ -->
+
+<h1 class="text-center">Membros da tripulação</h1>
+
+<div class="container-fluid">
+	<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+		<div class="col" *ngFor="let member of crew">
+			<div class="card h-100" style="width: 18rem;">
+				<img src="https://api.dicebear.com/9.x/personas/svg?seed={{ member.id }}" class="card-img-top" alt="...">
+				<div class="card-body">
+					<h5 class="card-title">{{ member.nome }}</h5>
+					<p class="card-text"> {{ member.notasObservacoes }}</p>
+				</div>
+				<ul class="list-group list-group-flush">
+					<li class="list-group-item">Especie: {{ member.especie }}</li>
+					<li class="list-group-item">Função: {{ member.funcao }}</li>
+					<li class="list-group-item" [ngStyle]="getEstadoStyle(member.estado)">Estado: {{ member.estado }}</li>
+					<li class="list-group-item">Nascimento: {{ member.dataNascimentoCriacao }}</li>
+					<li class="list-group-item">Departamento: {{ member.setorDepartamento }}</li>
+					<li class="list-group-item">Contato de emergência: {{ member.contactosEmergencia }}</li>
+				</ul>
+				<div class="d-flex justify-content-around">
+    				<button class="btn btn-primary ms-3 me-3" [routerLink]="['/member-detail', member.id]">Mais detalhes</button>
+    				<button class="btn btn-danger me-3" (click)="deleteMember(member.id)">Excluir Membro</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

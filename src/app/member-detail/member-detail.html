@@ -1,0 +1,27 @@
+<h1 >Informações de membro</h1>
+
+<div *ngIf="member" class="card" style="width: 30rem;">
+	<img src="https://api.dicebear.com/9.x/personas/svg?seed={{ member.id }}" class="card-img-top" alt="...">
+	<div class="card-body">
+		<h5 class="card-title">{{ member.nome }}</h5>
+		<p class="card-text"> {{ member.notasObservacoes }}</p>
+	</div>
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item">ID: {{ member?.id }}</li>
+		<li class="list-group-item">Espécie: {{ member?.especie }}</li>
+		<li class="list-group-item">Nascimento: {{ member?.dataNascimentoCriacao }}</li>
+		<li class="list-group-item">Função: {{ member?.funcao }}</li>
+		<li class="list-group-item">Estado: {{ member?.estado }}</li>
+		<li class="list-group-item">Setor/Departamento: {{ member?.setorDepartamento }}</li>
+		<li class="list-group-item">Contactos de Emergência: {{ member?.contactosEmergencia }}</li>
+		<li class="list-group-item">Notas/Observações: {{ member?.notasObservacoes }}</li>
+	</ul>
+	<div class="card-body d-flex justify-content-around">
+		<button class="btn btn-secondary mt-3" [routerLink]="['/home']">Voltar para a Lista</button>
+		<button class="btn btn-warning mt-3" [routerLink]="['/member-edit', member.id]">Editar Informações</button>
+	</div>
+</div>
+
+<div *ngIf="!member">
+	<p>Membro não encontrado ou carregando...</p>
+</div>
